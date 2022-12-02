@@ -8,8 +8,8 @@ if (arrayTasks === null){
     localStorage.setItem("tasks","[]")
     arrayTasks = []
 }
-let items = arrayTasks.map((e) =>{
-    return `<li>${e.tarea}</li>`
+let items = arrayTasks.map((e, index) =>{
+    return `<li>${e.tarea} <button onclick="deleteTask(${index})"> Delete </button> <button id=edit> Edit </button> </li>`
 })
 lista.innerHTML = items.join(" ")
 })
@@ -22,3 +22,11 @@ savedTasks.push({ tarea: inputTask})
 localStorage.setItem("tasks",JSON.stringify(savedTasks))
 window.location.reload()
 }
+
+function deleteTask(index) {
+    let savedTasks = JSON.parse(localStorage.getItem("tasks"))
+    savedTasks.splice(index,1);
+    localStorage.setItem("tasks",JSON.stringify(savedTasks))
+    window.location.reload()
+}
+
