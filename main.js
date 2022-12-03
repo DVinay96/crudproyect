@@ -9,7 +9,7 @@ if (arrayTasks === null){
     arrayTasks = []
 }
 let items = arrayTasks.map((e, index) =>{
-    return `<li>${e.tarea} <button onclick="deleteTask(${index})"> Delete </button> <button id=edit> Edit </button> </li>`
+    return `<li>${e.tarea} <button onclick="deleteTask(${index})"> Delete </button> <button onclick="editTask(${index})"> Edit </button> </li>`
 })
 lista.innerHTML = items.join(" ")
 })
